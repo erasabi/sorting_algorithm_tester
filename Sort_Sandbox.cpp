@@ -20,14 +20,12 @@ void print_array(int* a, int n){
 void insertion(int* a, int n, int data){
 	float steps = 0;
 	for(int i=1; i<n; i++){
-		//insert a[i] into a[0:i-1]
 		int t = a[i];
 		int j;
 
 		for(j=i-1; j>=0 && t<a[j]; j--){
 			a[j + 1] = a[j]; ++steps;
 		}
-		
 		a[j + 1] = t;
 		++steps;		
 	} 
@@ -58,8 +56,6 @@ int main(int argc, char* argv[]){
 
 	//initializes array with random numbers
 	for(int i=0; i<n; i++) a[i] =  rand() % n;
-
-	//cout << "before: "; print_array(a, n); 
 
 	if(sort_type == "insertion") insertion(a, n, data);
 	else cout << "error: invalid sort type" << endl;
