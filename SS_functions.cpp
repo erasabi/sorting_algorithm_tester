@@ -34,3 +34,29 @@ void insertion(int* a, int n, int data){
 		default: break;
 	}
 }
+
+void bubble(int* a, int n, int data){
+	int run_throughs = 1;
+	float steps = 0;
+	
+	if(data == 'W') run_throughs = n - 1;
+	while(run_throughs > 0){
+		int l=0;
+		for(int r=1; r<n; r++){
+			int temp;
+			if(a[l] > a[r]){
+				temp = a[r];
+				a[r] = a[l];
+				a[l] =  temp;
+			}
+			l++; steps++;
+		}
+		--run_throughs;
+	}		
+
+	if(n < 100){
+	 		cout << "array: "; print_array(a, n); 
+			cout << "steps: " << steps << endl;
+	}
+	else 	cout << "steps: " << steps << endl;
+}
